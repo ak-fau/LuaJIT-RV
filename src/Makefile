@@ -269,7 +269,16 @@ ifneq (,$(findstring LJ_TARGET_MIPS ,$(TARGET_TESTARCH)))
     TARGET_LJARCH= mips
   endif
 else
+ifneq (,$(findstring LJ_TARGET_RISCV ,$(TARGET_TESTARCH)))
+  ifneq (,$(findstring LJ_ARCH_BITS 32,$(TARGET_TESTARCH)))
+    TARGET_LJARCH= rv32i
+  endif
+  ifneq (,$(findstring LJ_ARCH_BITS 64,$(TARGET_TESTARCH)))
+    TARGET_LJARCH= rv64i
+  endif
+else
   $(error Unsupported target architecture)
+endif
 endif
 endif
 endif

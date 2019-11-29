@@ -55,6 +55,12 @@
 #define LUAJIT_TARGET	LUAJIT_ARCH_MIPS64
 #elif defined(__mips__) || defined(__mips) || defined(__MIPS__) || defined(__MIPS)
 #define LUAJIT_TARGET	LUAJIT_ARCH_MIPS32
+#elif defined(__riscv )
+#if __riscv_xlen == 32
+#define LUAJIT_TARGET   LUAJIT_ARCH_RV32I
+#else
+#define LUAJIT_TARGET   LUAJIT_ARCH_RV64I
+#endif
 #else
 #error "No support for this architecture (yet)"
 #endif
@@ -382,6 +388,16 @@
 #else
 #define LJ_ARCH_VERSION		10
 #endif
+
+#elif LUAJIT_TARGET == LUAJIT_ARCH_RV32I
+
+#define LJ_TARGET_RISCV 1
+#define LJ_ARCH_BITS 32
+
+#elif LUAJIT_TARGET == LUAJIT_ARCH_RV64I
+
+#define LJ_TARGET_RISCV 1
+#define LJ_ARCH_BITS 64
 
 #else
 #error "No target architecture defined"
