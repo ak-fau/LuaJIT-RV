@@ -1,0 +1,23 @@
+|// Low-level VM code for RISC-V CPUs.
+|// Bytecode interpreter, fast functions and helper functions.
+|// Copyright (C) 2019-2020 Anton Kuzmin.
+|// Copyright (C) 2005-2017 Mike Pall. See Copyright Notice in luajit.h
+|//
+|
+|.arch rv32i
+|.section code_op, code_sub
+|.if 0
+|
+|.actionlist build_actionlist
+|.globals GLOB_
+|.globalnames globnames
+|.externnames extnames
+|
+|// Note: The ragged indentation of the instructions is intentional.
+|//       The starting columns indicate data dependencies.
+|
+|//-----------------------------------------------------------------------
+|
+|// Fixed register assignments for the interpreter.
+|// Don't use: r0 = 0, r26/r27 = reserved, r28 = gp, r29 = sp, r31 = ra
+|.endif

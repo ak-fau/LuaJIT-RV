@@ -1,0 +1,17 @@
+#!/bin/sh
+#set -x
+
+DATE=`date -I`
+
+HOST_CC="gcc -m32"
+CROSS=riscv64-unknown-elf-
+TARGET_CFLAGS="-march=rv32i -mabi=ilp32"
+
+# TARGET_SYS=
+
+echo "==== Building LuaJIT for RISC-V ($DATE) ===="
+echo "================================================="
+make -C src \
+     HOST_CC="$HOST_CC" CROSS=$CROSS \
+     TARGET_CFLAGS="$TARGET_CFLAGS"
+echo "================================================="
