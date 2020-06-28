@@ -18,6 +18,7 @@
 #include "lua.h"
 #include "lauxlib.h"
 
+#include "lj_assert.c"
 #include "lj_gc.c"
 #include "lj_err.c"
 #include "lj_char.c"
@@ -30,6 +31,7 @@
 #include "lj_udata.c"
 #include "lj_meta.c"
 #include "lj_debug.c"
+#include "lj_prng.c"
 #include "lj_state.c"
 #include "lj_dispatch.c"
 #include "lj_vmevent.c"
